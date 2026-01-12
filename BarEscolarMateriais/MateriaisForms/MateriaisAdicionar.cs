@@ -66,10 +66,5 @@ namespace BarEscolarMateriais.MateriaisForms
                 cbbCategory.Items.Add(c.Name);
             }
         }
-
-        private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

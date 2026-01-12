@@ -23,10 +23,12 @@ namespace BarEscolarMateriais.MateriaisForms
             id = ID;
             _context = new dbEscolaAferContext();
             var material = _context.Materials.FirstOrDefault(m => m.Id == id);
+            var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == material.Categoryid);
             txtName.Text = material.Name;
             txtDescription.Text = material.Description;
-            cbbCategory.SelectedItem = material.Category;
+            cbbCategory.SelectedIndex = cat.Id;
             nudPrice.Value = material.Price;
+            txtStock.Text = material.Stock.ToString();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace BarEscolarMateriais.MateriaisForms
         private void btnEditar_Click(object sender, EventArgs e)
         {
             var material = _context.Materials.FirstOrDefault(m => m.Id == id);
-            if (txtName.Text != "" && cbbCategory.SelectedItem != null && nudPrice.Value >= 0)
+            if (txtName.Text != "" && cbbCategory.SelectedIndex != -1 && nudPrice.Value >= 0)
             {
                 material.Name = txtName.Text;
                 material.Description = txtDescription.Text;

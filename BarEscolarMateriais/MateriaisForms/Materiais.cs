@@ -15,26 +15,32 @@ namespace BarEscolarMateriais
             InitializeComponent();
             _context = new dbEscolaAferContext();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        public void reset()
         {
             dgvMateriais.DataSource = _context.Materials.ToList();
             dgvCategoria.DataSource = _context.MaterialCategories.ToList();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            reset();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             MateriaisAdicionar form = new MateriaisAdicionar();
             form.Show();
+            reset();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0]);
+                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0].Value);
                 MateriaisEdits form = new MateriaisEdits(id);
                 form.Show();
+                reset();
             }
             catch
             {
@@ -46,15 +52,17 @@ namespace BarEscolarMateriais
         {
             CategoriaAdicionar form = new CategoriaAdicionar();
             form.Show();
+            reset();
         }
 
         private void btnEditC_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0]);
+                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
                 CategoriaEditar form = new CategoriaEditar(id);
                 form.Show();
+                reset();
             }
             catch
             {
@@ -66,10 +74,11 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0]);
+                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0].Value);
                 var mat = _context.Materials.FirstOrDefault(c => c.Id == id);
                 _context.Materials.Remove(mat);
                 _context.SaveChanges();
+                reset();
             }
             catch
             {
@@ -81,10 +90,11 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0]);
+                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
                 var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == id);
                 _context.MaterialCategories.Remove(cat);
                 _context.SaveChanges();
+                reset();
             }
             catch
             {

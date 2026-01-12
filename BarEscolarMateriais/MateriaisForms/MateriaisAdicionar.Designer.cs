@@ -75,7 +75,6 @@
             cbbCategory.Name = "cbbCategory";
             cbbCategory.Size = new Size(174, 28);
             cbbCategory.TabIndex = 3;
-            cbbCategory.SelectedIndexChanged += cbbCategory_SelectedIndexChanged;
             cbbCategory.Click += cbbCategory_Click;
             // 
             // lblPreco
