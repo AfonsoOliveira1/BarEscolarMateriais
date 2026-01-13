@@ -60,6 +60,7 @@ namespace BarEscolarMateriais.MateriaisForms
 
         private void cbbCategory_Click(object sender, EventArgs e)
         {
+            cbbCategory.Items.Clear();
             var categoria = _context.MaterialCategories;
             foreach (var c in categoria)
             {

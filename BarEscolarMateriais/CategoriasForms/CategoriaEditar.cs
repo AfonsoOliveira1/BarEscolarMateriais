@@ -20,11 +20,14 @@ namespace BarEscolarMateriais.CategoriasForms
             InitializeComponent();
             id = ID;
             _context = new dbEscolaAferContext();
+            var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == id);
+            txtName.Text = cat.Name;
+            txtDescription.Text = cat.Description;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if(txtName.Text != "")
+            if (txtName.Text != "")
             {
                 var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == id);
                 cat.Name = txtName.Text;
@@ -35,6 +38,11 @@ namespace BarEscolarMateriais.CategoriasForms
             {
                 MessageBox.Show("Dados Invalidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

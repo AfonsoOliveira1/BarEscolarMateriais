@@ -29,7 +29,7 @@ namespace BarEscolarMateriais
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             MateriaisAdicionar form = new MateriaisAdicionar();
-            form.Show();
+            form.ShowDialog();
             reset();
         }
 
@@ -37,14 +37,14 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0].Value);
-                MateriaisEdits form = new MateriaisEdits(id);
+                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+                CategoriaEditar form = new CategoriaEditar(id);
                 form.Show();
                 reset();
             }
-            catch
+            catch(ArgumentException es)
             {
-                MessageBox.Show("Selecione uma coluna de um material!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(es.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -59,8 +59,8 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
-                CategoriaEditar form = new CategoriaEditar(id);
+                int id = Convert.ToInt32(dgvCategoria.CurrentRow.Cells["Id"].Value);
+                MateriaisEdits form = new MateriaisEdits(id);
                 form.Show();
                 reset();
             }

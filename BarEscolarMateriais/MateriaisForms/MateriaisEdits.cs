@@ -26,7 +26,7 @@ namespace BarEscolarMateriais.MateriaisForms
             var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == material.Categoryid);
             txtName.Text = material.Name;
             txtDescription.Text = material.Description;
-            cbbCategory.SelectedIndex = cat.Id;
+            cbbCategory.SelectedIndex = 0;
             nudPrice.Value = material.Price;
             txtStock.Text = material.Stock.ToString();
         }
@@ -66,6 +66,7 @@ namespace BarEscolarMateriais.MateriaisForms
 
         private void cbbCategory_Click(object sender, EventArgs e)
         {
+            cbbCategory.Items.Clear();
             var categoria = _context.MaterialCategories;
             foreach (var c in categoria)
             {
