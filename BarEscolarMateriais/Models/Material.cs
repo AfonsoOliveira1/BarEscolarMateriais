@@ -20,4 +20,6 @@ public partial class Material
     public int? Stock { get; set; }
 
     public virtual MaterialCategory Category { get; set; }
+
+    public virtual ICollection<Historico> Historicos { get; set; } = new List<Historico>();
 }

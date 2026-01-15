@@ -39,6 +39,7 @@ namespace BarEscolarMateriais.MateriaisForms
                 };
                 _context.Materials.Add(mat);
                 _context.SaveChanges();
+                this.Close();
             }
             else
             {

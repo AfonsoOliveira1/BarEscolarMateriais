@@ -7,7 +7,7 @@ namespace BarEscolarMateriais.Models;
 
 public partial class User
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
 
     public string UserName { get; set; }
 
@@ -18,4 +18,10 @@ public partial class User
     public string Passwordhash { get; set; }
 
     public int? Role { get; set; }
+
+    public virtual ICollection<Historico> Historicos { get; set; } = new List<Historico>();
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    public virtual Role RoleNavigation { get; set; }
 }

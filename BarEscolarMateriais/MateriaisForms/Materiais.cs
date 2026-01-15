@@ -14,59 +14,61 @@ namespace BarEscolarMateriais
         {
             InitializeComponent();
             _context = new dbEscolaAferContext();
+            ListViewLoad();
         }
-        public void reset()
+
+        public void ListViewLoad()
         {
-            dgvMateriais.DataSource = _context.Materials.ToList();
-            dgvCategoria.DataSource = _context.MaterialCategories.ToList();
+            //materiais
+            try
+            {
+                lvMateriais.Items.Clear();
+                _context.Dispose();
+                _context = new dbEscolaAferContext();
+                for (int i = 0; i < _context.Materials.Count(); i++)
+                {
+                    var mat = _context.Materials.Include(c => c.Category).ToList()[i];
+                    var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == mat.Categoryid);
+                    ListViewItem item = new ListViewItem(mat.Id.ToString());
+                    item.Tag = mat.Id;
+                    item.SubItems.Add(mat.Name);
+                    item.SubItems.Add(cat.Name);
+                    item.SubItems.Add(mat.Price.ToString() + "€");
+                    item.SubItems.Add(mat.Stock.ToString());
+                    item.SubItems.Add(mat.Description);
+                    lvMateriais.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            reset();
+            ListViewLoad();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             MateriaisAdicionar form = new MateriaisAdicionar();
             form.ShowDialog();
-            reset();
+            ListViewLoad();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
-                CategoriaEditar form = new CategoriaEditar(id);
-                form.Show();
-                reset();
+                int id = Convert.ToInt32(lvMateriais.SelectedItems[0].Tag);
+                MateriaisEdits form = new MateriaisEdits(id);
+                form.ShowDialog();
+                ListViewLoad();
             }
-            catch(ArgumentException es)
+            catch (ArgumentException es)
             {
                 MessageBox.Show(es.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnAdicionarC_Click(object sender, EventArgs e)
-        {
-            CategoriaAdicionar form = new CategoriaAdicionar();
-            form.Show();
-            reset();
-        }
-
-        private void btnEditC_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int id = Convert.ToInt32(dgvCategoria.CurrentRow.Cells["Id"].Value);
-                MateriaisEdits form = new MateriaisEdits(id);
-                form.Show();
-                reset();
-            }
-            catch
-            {
-                MessageBox.Show("Selecione uma coluna de uma categoria!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -74,32 +76,24 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(dgvMateriais.SelectedRows[0].Cells[0].Value);
-                var mat = _context.Materials.FirstOrDefault(c => c.Id == id);
-                _context.Materials.Remove(mat);
-                _context.SaveChanges();
-                reset();
+                foreach (ListViewItem item in lvMateriais.SelectedItems)
+                {
+                    int id = (int)item.Tag;
+                    var mat = _context.Materials.FirstOrDefault(c => c.Id == id);
+                    _context.Materials.Remove(mat);
+                    _context.SaveChanges();
+                }
+                ListViewLoad();
             }
             catch
             {
-                MessageBox.Show("Selecione uma coluna de um material!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selecione um material!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnEliminarC_Click(object sender, EventArgs e)
+        private void btnHistory_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int id = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
-                var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == id);
-                _context.MaterialCategories.Remove(cat);
-                _context.SaveChanges();
-                reset();
-            }
-            catch
-            {
-                MessageBox.Show("Selecione uma coluna de uma categoria!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            History form = new History();
+            form.Show();
         }
     }
 }

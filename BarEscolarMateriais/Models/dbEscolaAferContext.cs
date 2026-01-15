@@ -9,13 +9,16 @@ namespace BarEscolarMateriais.Models;
 public partial class dbEscolaAferContext : DbContext
 {
     public dbEscolaAferContext() { }
-
+    public dbEscolaAferContext(DbContextOptions<dbEscolaAferContext> options)
+        : base(options)
+    {
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer(
-                "Server=.\\SQLSERVER;Database=dbEscolaAfer;User ID=sa;Password=SQL_;TrustServerCertificate=True");
+                "Server=sql.bsite.net\\MSSQL2016;Database=afer230065230054_dbEscolaAFER;User ID=afer230065230054_dbEscolaAFER;Password=SQL_;TrustServerCertificate=True");
         }
     }
 
@@ -36,6 +39,8 @@ public partial class dbEscolaAferContext : DbContext
     public virtual DbSet<OrderItem> OrderItems { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -68,6 +73,7 @@ public partial class dbEscolaAferContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("description");
+            entity.Property(e => e.Materialid).HasColumnName("materialid");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -76,7 +82,21 @@ public partial class dbEscolaAferContext : DbContext
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("price");
             entity.Property(e => e.Stock).HasColumnName("stock");
-            entity.Property(e => e.Userid).HasColumnName("userid");
+            entity.Property(e => e.Userid)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("userid");
+
+            entity.HasOne(d => d.Material).WithMany(p => p.Historicos)
+                .HasForeignKey(d => d.Materialid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Historico_Material");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Historicos)
+                .HasForeignKey(d => d.Userid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Historico_Users");
         });
 
         modelBuilder.Entity<Material>(entity =>
@@ -171,8 +191,14 @@ public partial class dbEscolaAferContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Userid)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.Userid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Order_Users");
         });
 
         modelBuilder.Entity<OrderItem>(entity =>
@@ -219,10 +245,24 @@ public partial class dbEscolaAferContext : DbContext
                 .HasConstraintName("FK_Product_Category");
         });
 
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.ToTable("Role");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Role1)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("role");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK_Users_1");
+
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("ID");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -238,6 +278,10 @@ public partial class dbEscolaAferContext : DbContext
             entity.Property(e => e.UserName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.RoleNavigation).WithMany(p => p.Users)
+                .HasForeignKey(d => d.Role)
+                .HasConstraintName("FK_Users_Role");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -70,6 +70,7 @@
             // 
             // cbbCategory
             // 
+            cbbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbCategory.FormattingEnabled = true;
             cbbCategory.Location = new Point(12, 91);
             cbbCategory.Name = "cbbCategory";

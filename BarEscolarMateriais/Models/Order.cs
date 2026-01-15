@@ -9,7 +9,7 @@ public partial class Order
 {
     public int Id { get; set; }
 
-    public int Userid { get; set; }
+    public string Userid { get; set; }
 
     public decimal? Total { get; set; }
 
@@ -20,4 +20,6 @@ public partial class Order
     public string Type { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+    public virtual User User { get; set; }
 }

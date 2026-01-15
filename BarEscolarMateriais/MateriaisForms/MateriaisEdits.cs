@@ -22,13 +22,25 @@ namespace BarEscolarMateriais.MateriaisForms
             InitializeComponent();
             id = ID;
             _context = new dbEscolaAferContext();
+            addItens();
             var material = _context.Materials.FirstOrDefault(m => m.Id == id);
             var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == material.Categoryid);
+            foreach(var item in cbbCategory.Items)
+                if (item.ToString() == cat.Name) cbbCategory.SelectedItem = item;
             txtName.Text = material.Name;
             txtDescription.Text = material.Description;
-            cbbCategory.SelectedIndex = 0;
             nudPrice.Value = material.Price;
             txtStock.Text = material.Stock.ToString();
+        }
+
+        public void addItens()
+        {
+            cbbCategory.Items.Clear();
+            var categoria = _context.MaterialCategories;
+            foreach (var c in categoria)
+            {
+                cbbCategory.Items.Add(c.Name);
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -49,6 +61,7 @@ namespace BarEscolarMateriais.MateriaisForms
                 material.Categoryid = cat.Id;
                 material.Category = cat;
                 _context.SaveChanges();
+                this.Close();
             }
             else
             {
@@ -66,12 +79,7 @@ namespace BarEscolarMateriais.MateriaisForms
 
         private void cbbCategory_Click(object sender, EventArgs e)
         {
-            cbbCategory.Items.Clear();
-            var categoria = _context.MaterialCategories;
-            foreach (var c in categoria)
-            {
-                cbbCategory.Items.Add(c);
-            }
+            addItens();
         }
     }
 }

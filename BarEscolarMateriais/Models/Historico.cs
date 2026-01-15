@@ -15,9 +15,15 @@ public partial class Historico
 
     public decimal? Price { get; set; }
 
-    public int? Categoryid { get; set; }
+    public int Categoryid { get; set; }
 
     public int? Stock { get; set; }
 
-    public int? Userid { get; set; }
+    public string Userid { get; set; }
+
+    public int Materialid { get; set; }
+
+    public virtual Material Material { get; set; }
+
+    public virtual User User { get; set; }
 }

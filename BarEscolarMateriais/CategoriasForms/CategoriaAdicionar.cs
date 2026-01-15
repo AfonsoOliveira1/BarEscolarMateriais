@@ -38,6 +38,7 @@ namespace BarEscolarMateriais.CategoriasForms
                 };
                 _context.MaterialCategories.Add(newcat);
                 _context.SaveChanges();
+                this.Close();
             }
             else
             {

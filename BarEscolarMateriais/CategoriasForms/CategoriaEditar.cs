@@ -33,6 +33,7 @@ namespace BarEscolarMateriais.CategoriasForms
                 cat.Name = txtName.Text;
                 cat.Description = txtDescription.Text;
                 _context.SaveChanges();
+                this.Close();
             }
             else
             {
