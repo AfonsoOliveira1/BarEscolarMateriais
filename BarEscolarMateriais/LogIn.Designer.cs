@@ -86,7 +86,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Segoe UI", 20F);
-            txtEmail.Location = new Point(14, 184);
+            txtEmail.Location = new Point(14, 174);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Escreva o seu Email";
@@ -110,7 +110,7 @@
             lblemail.AutoSize = true;
             lblemail.Font = new Font("Segoe UI", 30F);
             lblemail.ForeColor = Color.Gainsboro;
-            lblemail.Location = new Point(3, 127);
+            lblemail.Location = new Point(3, 117);
             lblemail.Name = "lblemail";
             lblemail.Size = new Size(117, 54);
             lblemail.TabIndex = 1;
