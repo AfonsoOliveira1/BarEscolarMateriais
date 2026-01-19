@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             dgvHistorico = new DataGridView();
+            btnAdicionar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvHistorico).BeginInit();
             SuspendLayout();
             // 
@@ -37,19 +38,28 @@
             dgvHistorico.AllowUserToAddRows = false;
             dgvHistorico.AllowUserToDeleteRows = false;
             dgvHistorico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistorico.Dock = DockStyle.Fill;
-            dgvHistorico.Location = new Point(0, 0);
+            dgvHistorico.Location = new Point(29, 77);
             dgvHistorico.Name = "dgvHistorico";
             dgvHistorico.ReadOnly = true;
             dgvHistorico.RowHeadersWidth = 51;
-            dgvHistorico.Size = new Size(696, 322);
+            dgvHistorico.Size = new Size(647, 385);
             dgvHistorico.TabIndex = 0;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Location = new Point(29, 26);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(647, 45);
+            btnAdicionar.TabIndex = 1;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // History
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(696, 322);
+            ClientSize = new Size(706, 467);
+            Controls.Add(btnAdicionar);
             Controls.Add(dgvHistorico);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
@@ -64,5 +74,6 @@
         #endregion
 
         private DataGridView dgvHistorico;
+        private Button btnAdicionar;
     }
 }

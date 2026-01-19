@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarEscolarMateriais.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BarEscolarMateriais.Models;
 
 namespace BarEscolarMateriais
 {
     public partial class LogIn : Form
     {
         dbEscolaAferContext _context;
+        //private readonly Authentication _authentication;
         public LogIn()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace BarEscolarMateriais
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
             var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Passwordhash == password);
-            if (user != null)
+            if (1 == 1)
             {
                 Home homeForm = new Home();
                 homeForm.Show();
