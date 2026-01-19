@@ -49,7 +49,7 @@
             // 
             btnAdicionar.Location = new Point(29, 26);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(647, 45);
+            btnAdicionar.Size = new Size(620, 45);
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
