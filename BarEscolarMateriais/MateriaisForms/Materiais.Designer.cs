@@ -44,6 +44,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lvMateriais);
             groupBox1.Controls.Add(btnEliminar);
             groupBox1.Controls.Add(btnAdicionar);
             groupBox1.Controls.Add(btnEdit);
@@ -51,7 +52,7 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(578, 64);
+            groupBox1.Size = new Size(578, 356);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Materiais Ações";
@@ -92,10 +93,10 @@
             // lvMateriais
             // 
             lvMateriais.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
-            lvMateriais.Location = new Point(12, 78);
+            lvMateriais.Location = new Point(6, 57);
             lvMateriais.Margin = new Padding(3, 2, 3, 2);
             lvMateriais.Name = "lvMateriais";
-            lvMateriais.Size = new Size(578, 290);
+            lvMateriais.Size = new Size(567, 290);
             lvMateriais.TabIndex = 4;
             lvMateriais.UseCompatibleStateImageBehavior = false;
             lvMateriais.View = View.Details;
@@ -103,16 +104,17 @@
             // columnHeader1
             // 
             columnHeader1.Text = "ID";
+            columnHeader1.Width = 50;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "Name";
-            columnHeader2.Width = 150;
+            columnHeader2.Width = 140;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "Category";
-            columnHeader3.Width = 100;
+            columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
@@ -121,18 +123,18 @@
             // columnHeader5
             // 
             columnHeader5.Text = "Stock";
+            columnHeader5.Width = 50;
             // 
             // columnHeader6
             // 
             columnHeader6.Text = "Description";
-            columnHeader6.Width = 200;
+            columnHeader6.Width = 170;
             // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(600, 378);
-            Controls.Add(lvMateriais);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);

@@ -38,9 +38,10 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(187, 198);
+            btnAdicionar.Location = new Point(164, 152);
+            btnAdicionar.Margin = new Padding(3, 2, 3, 2);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(155, 34);
+            btnAdicionar.Size = new Size(136, 26);
             btnAdicionar.TabIndex = 29;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // btnVoltar
             // 
-            btnVoltar.Location = new Point(12, 198);
+            btnVoltar.Location = new Point(10, 152);
+            btnVoltar.Margin = new Padding(3, 2, 3, 2);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(155, 34);
+            btnVoltar.Size = new Size(136, 26);
             btnVoltar.TabIndex = 28;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -58,41 +60,43 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(12, 62);
+            lblDescricao.Location = new Point(10, 50);
             lblDescricao.Name = "lblDescricao";
-            lblDescricao.Size = new Size(74, 20);
+            lblDescricao.Size = new Size(58, 15);
             lblDescricao.TabIndex = 27;
             lblDescricao.Text = "Descrição";
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(12, 85);
+            txtDescription.Location = new Point(10, 68);
+            txtDescription.Margin = new Padding(3, 2, 3, 2);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(330, 105);
+            txtDescription.Size = new Size(289, 80);
             txtDescription.TabIndex = 26;
             // 
             // txtName
             // 
-            txtName.Location = new Point(12, 32);
+            txtName.Location = new Point(10, 24);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(330, 27);
+            txtName.Size = new Size(289, 23);
             txtName.TabIndex = 21;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(12, 9);
+            lblName.Location = new Point(10, 7);
             lblName.Name = "lblName";
-            lblName.Size = new Size(50, 20);
+            lblName.Size = new Size(40, 15);
             lblName.TabIndex = 20;
             lblName.Text = "Nome";
             // 
             // CategoriaAdicionar
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(350, 242);
+            ClientSize = new Size(306, 186);
             Controls.Add(btnAdicionar);
             Controls.Add(btnVoltar);
             Controls.Add(lblDescricao);
@@ -100,6 +104,7 @@
             Controls.Add(txtName);
             Controls.Add(lblName);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "CategoriaAdicionar";
             ShowInTaskbar = false;

@@ -31,21 +31,26 @@ namespace BarEscolarMateriais
         private void btnMateriais_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Materiais());
+            lblEcra.Text = "Materiais";
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Categorias());
+            lblEcra.Text = "Categorias";
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
             OpenChildForm(new History());
+            lblEcra.Text = "Historico";
         }
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-
+            LogIn from = new LogIn();
+            from.Show();
+            this.Close();
         }
     }
 }
