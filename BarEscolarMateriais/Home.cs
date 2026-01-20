@@ -50,7 +50,7 @@ namespace BarEscolarMateriais
         {
             LogIn from = new LogIn();
             from.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace BarEscolarMateriais.Services
 {
     public class Authentication
     {
-        private readonly JsonUserStore m_userStore;
+        private dbEscolaAferContext _context;
         private PasswordHasher<Users> _passwordHasher;
         private User _currentuser;
 

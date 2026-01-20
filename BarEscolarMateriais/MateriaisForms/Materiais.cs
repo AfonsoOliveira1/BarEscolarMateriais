@@ -90,10 +90,5 @@ namespace BarEscolarMateriais
                 MessageBox.Show("Selecione um material!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            History form = new History();
-            form.Show();
-        }
     }
 }
