@@ -25,7 +25,8 @@ namespace BarEscolarMateriais.MateriaisForms
         {
             if (txtName.Text != "" && cbbCategory.SelectedItem != null && nudPrice.Value >= 0 && Convert.ToInt32(txtStock.Text) >= 0)
             {
-                MaterialCategory cat = _context.MaterialCategories.FirstOrDefault(c => c.Name == cbbCategory.SelectedItem.ToString());
+                int idCategory = (int)cbbCategory.SelectedValue;
+                MaterialCategory cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == idCategory);
 
                 var mat = new Material
                 {
@@ -61,11 +62,15 @@ namespace BarEscolarMateriais.MateriaisForms
 
         private void cbbCategory_Click(object sender, EventArgs e)
         {
-            cbbCategory.Items.Clear();
-            var categoria = _context.MaterialCategories;
-            foreach (var c in categoria)
+            try
             {
-                cbbCategory.Items.Add(c.Name);
+                cbbCategory.DataSource = _context.MaterialCategories.ToList();
+                cbbCategory.DisplayMember = "Name";
+                cbbCategory.ValueMember = "Id";
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

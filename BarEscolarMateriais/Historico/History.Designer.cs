@@ -30,21 +30,24 @@
         {
             btnAdicionar = new Button();
             btnRemover = new Button();
-            lvHistorico = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
+            groupBox1 = new GroupBox();
+            mlvHistorico = new MaterialSkin.Controls.MaterialListView();
+            colID = new ColumnHeader();
+            colUser = new ColumnHeader();
+            colName = new ColumnHeader();
+            colCategory = new ColumnHeader();
+            colPrice = new ColumnHeader();
+            colStock = new ColumnHeader();
+            colDescription = new ColumnHeader();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(29, 26);
+            btnAdicionar.Location = new Point(6, 20);
+            btnAdicionar.Margin = new Padding(3, 2, 3, 2);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(311, 45);
+            btnAdicionar.Size = new Size(272, 34);
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -52,84 +55,107 @@
             // 
             // btnRemover
             // 
-            btnRemover.Location = new Point(346, 26);
+            btnRemover.Location = new Point(284, 20);
+            btnRemover.Margin = new Padding(3, 2, 3, 2);
             btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(330, 45);
+            btnRemover.Size = new Size(289, 34);
             btnRemover.TabIndex = 2;
             btnRemover.Text = "Remover";
             btnRemover.UseVisualStyleBackColor = true;
             btnRemover.Click += btnRemover_Click;
             // 
-            // lvHistorico
+            // groupBox1
             // 
-            lvHistorico.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8 });
-            lvHistorico.Location = new Point(29, 77);
-            lvHistorico.Name = "lvHistorico";
-            lvHistorico.Size = new Size(647, 385);
-            lvHistorico.TabIndex = 5;
-            lvHistorico.UseCompatibleStateImageBehavior = false;
-            lvHistorico.View = View.Details;
+            groupBox1.Controls.Add(mlvHistorico);
+            groupBox1.Controls.Add(btnAdicionar);
+            groupBox1.Controls.Add(btnRemover);
+            groupBox1.Location = new Point(6, 6);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(583, 356);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Historico Ações";
             // 
-            // columnHeader1
+            // mlvHistorico
             // 
-            columnHeader1.Text = "ID";
-            columnHeader1.Width = 50;
+            mlvHistorico.AutoSizeTable = false;
+            mlvHistorico.BackColor = Color.FromArgb(255, 255, 255);
+            mlvHistorico.BorderStyle = BorderStyle.None;
+            mlvHistorico.Columns.AddRange(new ColumnHeader[] { colID, colUser, colName, colCategory, colPrice, colStock, colDescription });
+            mlvHistorico.Depth = 0;
+            mlvHistorico.FullRowSelect = true;
+            mlvHistorico.Location = new Point(6, 59);
+            mlvHistorico.MinimumSize = new Size(200, 100);
+            mlvHistorico.MouseLocation = new Point(-1, -1);
+            mlvHistorico.MouseState = MaterialSkin.MouseState.OUT;
+            mlvHistorico.Name = "mlvHistorico";
+            mlvHistorico.OwnerDraw = true;
+            mlvHistorico.Size = new Size(567, 291);
+            mlvHistorico.TabIndex = 7;
+            mlvHistorico.UseCompatibleStateImageBehavior = false;
+            mlvHistorico.View = View.Details;
             // 
-            // columnHeader3
+            // ID
             // 
-            columnHeader3.Text = "User";
-            columnHeader3.Width = 100;
+            colID.Text = "ID";
             // 
-            // columnHeader4
+            // User
             // 
-            columnHeader4.Text = "Name";
-            columnHeader4.Width = 100;
+            colUser.Text = "User";
+            colUser.Width = 100;
             // 
-            // columnHeader5
+            // Name
             // 
-            columnHeader5.Text = "Category";
-            columnHeader5.Width = 100;
+            colName.Text = "Name";
+            colName.Width = 100;
             // 
-            // columnHeader6
+            // Category
             // 
-            columnHeader6.Text = "Price";
-            columnHeader6.Width = 50;
+            colCategory.Text = "Category";
+            colCategory.Width = 100;
             // 
-            // columnHeader7
+            // Price
             // 
-            columnHeader7.Text = "Stock";
+            colPrice.Text = "Price";
+            colPrice.Width = 70;
             // 
-            // columnHeader8
+            // Stock
             // 
-            columnHeader8.Text = "Description";
-            columnHeader8.Width = 200;
+            colStock.Text = "Stock";
+            colStock.Width = 70;
+            // 
+            // Description
+            // 
+            colDescription.Text = "Description";
+            colDescription.Width = 120;
             // 
             // History
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(706, 467);
-            Controls.Add(lvHistorico);
-            Controls.Add(btnRemover);
-            Controls.Add(btnAdicionar);
+            ClientSize = new Size(593, 370);
+            Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "History";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "History";
+            Text = "Historico";
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Button btnAdicionar;
         private Button btnRemover;
-        private ListView lvHistorico;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
+        private GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialListView mlvHistorico;
+        private ColumnHeader colID;
+        private ColumnHeader colUser;
+        private ColumnHeader colName;
+        private ColumnHeader colCategory;
+        private ColumnHeader colPrice;
+        private ColumnHeader colStock;
+        private ColumnHeader colDescription;
     }
 }

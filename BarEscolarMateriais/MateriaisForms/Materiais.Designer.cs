@@ -30,25 +30,25 @@
         {
             groupBox1 = new GroupBox();
             btnEliminar = new Button();
+            mlvMateriais = new MaterialSkin.Controls.MaterialListView();
+            columnHeader7 = new ColumnHeader();
+            columnHeader8 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
+            columnHeader10 = new ColumnHeader();
+            columnHeader11 = new ColumnHeader();
+            columnHeader12 = new ColumnHeader();
             btnAdicionar = new Button();
             btnEdit = new Button();
-            lvMateriais = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(lvMateriais);
             groupBox1.Controls.Add(btnEliminar);
+            groupBox1.Controls.Add(mlvMateriais);
             groupBox1.Controls.Add(btnAdicionar);
             groupBox1.Controls.Add(btnEdit);
-            groupBox1.Location = new Point(12, 11);
+            groupBox1.Location = new Point(7, 4);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
@@ -67,6 +67,54 @@
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
+            // 
+            // mlvMateriais
+            // 
+            mlvMateriais.AutoSizeTable = false;
+            mlvMateriais.BackColor = Color.FromArgb(255, 255, 255);
+            mlvMateriais.BorderStyle = BorderStyle.None;
+            mlvMateriais.Columns.AddRange(new ColumnHeader[] { columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12 });
+            mlvMateriais.Depth = 0;
+            mlvMateriais.FullRowSelect = true;
+            mlvMateriais.Location = new Point(6, 58);
+            mlvMateriais.MinimumSize = new Size(200, 100);
+            mlvMateriais.MouseLocation = new Point(-1, -1);
+            mlvMateriais.MouseState = MaterialSkin.MouseState.OUT;
+            mlvMateriais.Name = "mlvMateriais";
+            mlvMateriais.OwnerDraw = true;
+            mlvMateriais.Size = new Size(566, 293);
+            mlvMateriais.TabIndex = 2;
+            mlvMateriais.UseCompatibleStateImageBehavior = false;
+            mlvMateriais.View = View.Details;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "ID";
+            // 
+            // columnHeader8
+            // 
+            columnHeader8.Text = "Name";
+            columnHeader8.Width = 150;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Category";
+            columnHeader9.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            columnHeader10.Text = "Price";
+            columnHeader10.Width = 70;
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "Stock";
+            columnHeader11.Width = 70;
+            // 
+            // columnHeader12
+            // 
+            columnHeader12.Text = "Description";
+            columnHeader12.Width = 110;
             // 
             // btnAdicionar
             // 
@@ -90,51 +138,11 @@
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
-            // lvMateriais
-            // 
-            lvMateriais.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
-            lvMateriais.Location = new Point(6, 57);
-            lvMateriais.Margin = new Padding(3, 2, 3, 2);
-            lvMateriais.Name = "lvMateriais";
-            lvMateriais.Size = new Size(567, 290);
-            lvMateriais.TabIndex = 4;
-            lvMateriais.UseCompatibleStateImageBehavior = false;
-            lvMateriais.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "ID";
-            columnHeader1.Width = 50;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Name";
-            columnHeader2.Width = 140;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Category";
-            columnHeader3.Width = 90;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Price";
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "Stock";
-            columnHeader5.Width = 50;
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "Description";
-            columnHeader6.Width = 170;
-            // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(600, 378);
+            ClientSize = new Size(592, 367);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);
@@ -152,12 +160,12 @@
         private Button btnEliminar;
         private Button btnEdit;
         private Button btnAdicionar;
-        private ListView lvMateriais;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
+        private MaterialSkin.Controls.MaterialListView mlvMateriais;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader9;
+        private ColumnHeader columnHeader10;
+        private ColumnHeader columnHeader11;
+        private ColumnHeader columnHeader12;
     }
 }

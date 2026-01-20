@@ -22,25 +22,15 @@ namespace BarEscolarMateriais.MateriaisForms
             InitializeComponent();
             id = ID;
             _context = new dbEscolaAferContext();
-            addItens();
             var material = _context.Materials.FirstOrDefault(m => m.Id == id);
             var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == material.Categoryid);
-            foreach(var item in cbbCategory.Items)
-                if (item.ToString() == cat.Name) cbbCategory.SelectedItem = item;
+            additens();
+            foreach(MaterialCategory item in cbbCategory.Items)
+                if (item.Id == cat.Id) cbbCategory.SelectedItem = item;
             txtName.Text = material.Name;
             txtDescription.Text = material.Description;
             nudPrice.Value = material.Price;
             txtStock.Text = material.Stock.ToString();
-        }
-
-        public void addItens()
-        {
-            cbbCategory.Items.Clear();
-            var categoria = _context.MaterialCategories;
-            foreach (var c in categoria)
-            {
-                cbbCategory.Items.Add(c.Name);
-            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -53,11 +43,13 @@ namespace BarEscolarMateriais.MateriaisForms
             var material = _context.Materials.FirstOrDefault(m => m.Id == id);
             if (txtName.Text != "" && cbbCategory.SelectedIndex != -1 && nudPrice.Value >= 0)
             {
+                int idCategory = (int)cbbCategory.SelectedValue;
+                MaterialCategory cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == idCategory);
+
                 material.Name = txtName.Text;
                 material.Description = txtDescription.Text;
                 material.Price = nudPrice.Value;
                 material.Stock = Convert.ToInt32(txtStock.Text);
-                MaterialCategory cat = _context.MaterialCategories.FirstOrDefault(c => c.Name == cbbCategory.SelectedItem.ToString());
                 material.Categoryid = cat.Id;
                 material.Category = cat;
                 _context.SaveChanges();
@@ -76,10 +68,23 @@ namespace BarEscolarMateriais.MateriaisForms
                 e.Handled = true;
             }
         }
+        public void additens()
+        {
+            try
+            {
+                cbbCategory.DataSource = _context.MaterialCategories.ToList();
+                cbbCategory.DisplayMember = "Name";
+                cbbCategory.ValueMember = "Id";
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void cbbCategory_Click(object sender, EventArgs e)
         {
-            addItens();
+            additens();
         }
     }
 }

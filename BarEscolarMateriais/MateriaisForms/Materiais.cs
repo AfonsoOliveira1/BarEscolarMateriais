@@ -22,7 +22,7 @@ namespace BarEscolarMateriais
             //materiais
             try
             {
-                lvMateriais.Items.Clear();
+                mlvMateriais.Items.Clear();
                 _context.Dispose();
                 _context = new dbEscolaAferContext();
                 for (int i = 0; i < _context.Materials.Count(); i++)
@@ -36,7 +36,7 @@ namespace BarEscolarMateriais
                     item.SubItems.Add(mat.Price.ToString() + "€");
                     item.SubItems.Add(mat.Stock.ToString());
                     item.SubItems.Add(mat.Description);
-                    lvMateriais.Items.Add(item);
+                    mlvMateriais.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace BarEscolarMateriais
         {
             try
             {
-                int id = Convert.ToInt32(lvMateriais.SelectedItems[0].Tag);
+                int id = Convert.ToInt32(mlvMateriais.SelectedItems[0].Tag);
                 MateriaisEdits form = new MateriaisEdits(id);
                 form.ShowDialog();
                 ListViewLoad();
@@ -76,7 +76,7 @@ namespace BarEscolarMateriais
         {
             try
             {
-                foreach (ListViewItem item in lvMateriais.SelectedItems)
+                foreach (ListViewItem item in mlvMateriais.SelectedItems)
                 {
                     int id = (int)item.Tag;
                     var mat = _context.Materials.FirstOrDefault(c => c.Id == id);

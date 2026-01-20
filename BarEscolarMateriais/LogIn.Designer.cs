@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label1 = new Label();
+            txtPassword = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            txtEmailorUsername = new MaterialSkin.Controls.MaterialTextBox();
             btnInserir = new Button();
-            txtPassword = new TextBox();
-            txtEmail = new TextBox();
             lblpassword = new Label();
             lblemail = new Label();
             lblLogin = new Label();
@@ -40,70 +41,118 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(39, 39, 59);
-            panel1.Controls.Add(btnInserir);
+            panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(txtEmail);
+            panel1.Controls.Add(txtEmailorUsername);
+            panel1.Controls.Add(btnInserir);
             panel1.Controls.Add(lblpassword);
             panel1.Controls.Add(lblemail);
             panel1.Controls.Add(lblLogin);
-            panel1.Location = new Point(38, 33);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(285, -3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(434, 597);
+            panel1.Size = new Size(380, 570);
             panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(37, 128);
+            label1.Name = "label1";
+            label1.Size = new Size(300, 28);
+            label1.TabIndex = 4;
+            label1.Text = "Gestão de Materiais para Admins";
+            // 
+            // txtPassword
+            // 
+            txtPassword.AllowPromptAsInput = true;
+            txtPassword.AnimateReadOnly = false;
+            txtPassword.AsciiOnly = false;
+            txtPassword.BackgroundImageLayout = ImageLayout.None;
+            txtPassword.BeepOnError = false;
+            txtPassword.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            txtPassword.Depth = 0;
+            txtPassword.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtPassword.HidePromptOnLeave = false;
+            txtPassword.HideSelection = true;
+            txtPassword.Hint = "Enter Password";
+            txtPassword.InsertKeyMode = InsertKeyMode.Default;
+            txtPassword.LeadingIcon = null;
+            txtPassword.Location = new Point(14, 357);
+            txtPassword.Mask = "";
+            txtPassword.MaxLength = 32767;
+            txtPassword.MouseState = MaterialSkin.MouseState.OUT;
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '●';
+            txtPassword.PrefixSuffixText = null;
+            txtPassword.PromptChar = '_';
+            txtPassword.ReadOnly = false;
+            txtPassword.RejectInputOnFirstFailure = false;
+            txtPassword.ResetOnPrompt = true;
+            txtPassword.ResetOnSpace = true;
+            txtPassword.RightToLeft = RightToLeft.No;
+            txtPassword.SelectedText = "";
+            txtPassword.SelectionLength = 0;
+            txtPassword.SelectionStart = 0;
+            txtPassword.ShortcutsEnabled = true;
+            txtPassword.Size = new Size(348, 48);
+            txtPassword.SkipLiterals = true;
+            txtPassword.TabIndex = 2;
+            txtPassword.TabStop = false;
+            txtPassword.TextAlign = HorizontalAlignment.Left;
+            txtPassword.TextMaskFormat = MaskFormat.IncludeLiterals;
+            txtPassword.TrailingIcon = null;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.ValidatingType = null;
+            // 
+            // txtEmailorUsername
+            // 
+            txtEmailorUsername.AnimateReadOnly = false;
+            txtEmailorUsername.BorderStyle = BorderStyle.None;
+            txtEmailorUsername.Depth = 0;
+            txtEmailorUsername.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtEmailorUsername.ForeColor = SystemColors.Window;
+            txtEmailorUsername.Hint = "Enter Email or Username";
+            txtEmailorUsername.LeadingIcon = null;
+            txtEmailorUsername.Location = new Point(14, 264);
+            txtEmailorUsername.MaxLength = 50;
+            txtEmailorUsername.MouseState = MaterialSkin.MouseState.OUT;
+            txtEmailorUsername.Multiline = false;
+            txtEmailorUsername.Name = "txtEmailorUsername";
+            txtEmailorUsername.Size = new Size(348, 50);
+            txtEmailorUsername.TabIndex = 1;
+            txtEmailorUsername.Text = "";
+            txtEmailorUsername.TrailingIcon = null;
             // 
             // btnInserir
             // 
-            btnInserir.BackColor = Color.FromArgb(51, 51, 76);
+            btnInserir.BackColor = Color.Black;
             btnInserir.FlatAppearance.BorderSize = 0;
             btnInserir.FlatStyle = FlatStyle.Flat;
             btnInserir.Font = new Font("Segoe UI", 14F);
             btnInserir.ForeColor = Color.Gainsboro;
             btnInserir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInserir.Location = new Point(16, 507);
+            btnInserir.Location = new Point(14, 462);
+            btnInserir.Margin = new Padding(3, 2, 3, 2);
             btnInserir.Name = "btnInserir";
-            btnInserir.Padding = new Padding(11, 0, 0, 0);
-            btnInserir.Size = new Size(398, 63);
-            btnInserir.TabIndex = 5;
+            btnInserir.Padding = new Padding(10, 0, 0, 0);
+            btnInserir.Size = new Size(348, 47);
+            btnInserir.TabIndex = 3;
             btnInserir.Text = "Inserir";
             btnInserir.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnInserir.UseVisualStyleBackColor = false;
             btnInserir.Click += btnInserir_Click;
             // 
-            // txtPassword
-            // 
-            txtPassword.Font = new Font("Segoe UI", 20F);
-            txtPassword.Location = new Point(16, 389);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
-            txtPassword.Multiline = true;
-            txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
-            txtPassword.PlaceholderText = "Escreva a sua Password";
-            txtPassword.Size = new Size(398, 55);
-            txtPassword.TabIndex = 4;
-            txtPassword.KeyPress += txtPassword_KeyPress;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Font = new Font("Segoe UI", 20F);
-            txtEmail.Location = new Point(16, 232);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
-            txtEmail.Multiline = true;
-            txtEmail.Name = "txtEmail";
-            txtEmail.PlaceholderText = "Email ou Username";
-            txtEmail.Size = new Size(398, 52);
-            txtEmail.TabIndex = 3;
-            txtEmail.KeyPress += txtEmail_KeyPress;
-            // 
             // lblpassword
             // 
             lblpassword.AutoSize = true;
             lblpassword.Font = new Font("Segoe UI", 20F);
-            lblpassword.ForeColor = Color.Gainsboro;
-            lblpassword.Location = new Point(3, 339);
+            lblpassword.ForeColor = SystemColors.ActiveCaptionText;
+            lblpassword.Location = new Point(6, 317);
             lblpassword.Name = "lblpassword";
-            lblpassword.Size = new Size(160, 46);
+            lblpassword.Size = new Size(128, 37);
             lblpassword.TabIndex = 2;
             lblpassword.Text = "Password";
             // 
@@ -111,10 +160,10 @@
             // 
             lblemail.AutoSize = true;
             lblemail.Font = new Font("Segoe UI", 20F);
-            lblemail.ForeColor = Color.Gainsboro;
-            lblemail.Location = new Point(3, 182);
+            lblemail.ForeColor = SystemColors.ActiveCaptionText;
+            lblemail.Location = new Point(6, 224);
             lblemail.Name = "lblemail";
-            lblemail.Size = new Size(262, 46);
+            lblemail.Size = new Size(212, 37);
             lblemail.TabIndex = 1;
             lblemail.Text = "Email/Username";
             // 
@@ -122,26 +171,25 @@
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI Semibold", 50F, FontStyle.Bold);
-            lblLogin.ForeColor = Color.Gainsboro;
-            lblLogin.Location = new Point(80, 17);
+            lblLogin.ForeColor = SystemColors.ActiveCaptionText;
+            lblLogin.Location = new Point(85, 12);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(260, 112);
+            lblLogin.Size = new Size(208, 89);
             lblLogin.TabIndex = 0;
             lblLogin.Text = "Login";
             // 
             // LogIn
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(51, 51, 76);
-            ClientSize = new Size(504, 665);
+            BackColor = Color.LightGray;
+            ClientSize = new Size(948, 562);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LogIn";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LogIn";
+            Text = "Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -152,9 +200,10 @@
         private Panel panel1;
         private Label lblemail;
         private Label lblLogin;
-        private TextBox txtEmail;
         private Label lblpassword;
-        private TextBox txtPassword;
         private Button btnInserir;
+        private MaterialSkin.Controls.MaterialTextBox txtEmailorUsername;
+        private MaterialSkin.Controls.MaterialMaskedTextBox txtPassword;
+        private Label label1;
     }
 }

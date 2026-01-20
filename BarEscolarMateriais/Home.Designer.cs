@@ -35,7 +35,7 @@
             btnCategory = new Button();
             btnMateriais = new Button();
             panellogo = new Panel();
-            label2 = new Label();
+            lblhome = new Label();
             panel1 = new Panel();
             lblEcra = new Label();
             panelmenu.SuspendLayout();
@@ -140,23 +140,23 @@
             // panellogo
             // 
             panellogo.BackColor = Color.FromArgb(39, 39, 59);
-            panellogo.Controls.Add(label2);
+            panellogo.Controls.Add(lblhome);
             panellogo.Dock = DockStyle.Top;
             panellogo.Location = new Point(0, 0);
             panellogo.Name = "panellogo";
             panellogo.Size = new Size(200, 78);
             panellogo.TabIndex = 5;
             // 
-            // label2
+            // lblhome
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 30F);
-            label2.ForeColor = Color.Gainsboro;
-            label2.Location = new Point(25, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(137, 54);
-            label2.TabIndex = 7;
-            label2.Text = "HOME";
+            lblhome.AutoSize = true;
+            lblhome.Font = new Font("Segoe UI", 30F);
+            lblhome.ForeColor = Color.Gainsboro;
+            lblhome.Location = new Point(25, 12);
+            lblhome.Name = "lblhome";
+            lblhome.Size = new Size(137, 54);
+            lblhome.TabIndex = 7;
+            lblhome.Text = "HOME";
             // 
             // panel1
             // 
@@ -174,7 +174,7 @@
             lblEcra.AutoSize = true;
             lblEcra.Font = new Font("Segoe UI", 30F);
             lblEcra.ForeColor = Color.Gainsboro;
-            lblEcra.Location = new Point(256, 9);
+            lblEcra.Location = new Point(225, 9);
             lblEcra.Name = "lblEcra";
             lblEcra.Size = new Size(137, 54);
             lblEcra.TabIndex = 0;
@@ -210,6 +210,6 @@
         private Panel panellogo;
         private Panel panel1;
         private Label lblEcra;
-        private Label label2;
+        private Label lblhome;
     }
 }

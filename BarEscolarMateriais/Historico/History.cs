@@ -27,7 +27,7 @@ namespace BarEscolarMateriais
             //historicos
             try
             {
-                lvHistorico.Items.Clear();
+                mlvHistorico.Items.Clear();
                 _context.Dispose();
                 _context = new dbEscolaAferContext();
                 for (int i = 0; i < _context.Historicos.Count(); i++)
@@ -38,13 +38,13 @@ namespace BarEscolarMateriais
                     var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == mat.Categoryid);
                     ListViewItem item = new ListViewItem(historico.Id.ToString());
                     item.Tag = historico.Id;
-                    item.SubItems.Add(user.FullName);
+                    item.SubItems.Add(user.UserName);
                     item.SubItems.Add(mat.Name);
                     item.SubItems.Add(cat.Name);
                     item.SubItems.Add(mat.Price.ToString() + "€");
                     item.SubItems.Add(mat.Stock.ToString());
                     item.SubItems.Add(mat.Description);
-                    lvHistorico.Items.Add(item);
+                    mlvHistorico.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace BarEscolarMateriais
         {
             try
             {
-                foreach (ListViewItem item in lvHistorico.SelectedItems)
+                foreach (ListViewItem item in mlvHistorico.SelectedItems)
                 {
                     int id = (int)item.Tag;
                     var historico = _context.Historicos.FirstOrDefault(c => c.Id == id);

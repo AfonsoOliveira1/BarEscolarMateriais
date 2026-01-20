@@ -1,5 +1,4 @@
-﻿using BarEscolarMateriais.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BarEscolarMateriais.Models;
+using BarEscolarMateriais.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BarEscolarMateriais
 {
     public partial class LogIn : Form
     {
         dbEscolaAferContext _context;
+        Authentication _authentication;
         //private readonly Authentication _authentication;
         public LogIn()
         {
             InitializeComponent();
+            _authentication = new Authentication();
             _context = new dbEscolaAferContext();
         }
 
@@ -41,18 +45,22 @@ namespace BarEscolarMateriais
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
+            string EmailorUsername = txtEmailorUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
-            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Passwordhash == password);
-            if (1 == 1)
+
+            var authenticated = _authentication.Login(EmailorUsername, password);
+            var user = _authentication.CurrentUser();
+
+            if (!authenticated || user == null || user.Role != 2)
             {
-                Home homeForm = new Home();
-                homeForm.Show();
-                this.Close();
+                txtPassword.Clear();
+                MessageBox.Show("Credenciais inválidas. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Credenciais inválidas. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Home home = new Home();
+                home.Show();
+                this.Hide();
             }
         }
     }

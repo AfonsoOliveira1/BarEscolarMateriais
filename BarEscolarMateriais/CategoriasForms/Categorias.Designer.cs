@@ -29,55 +29,30 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            lvCategoria = new ListView();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
-            columnHeader13 = new ColumnHeader();
             btnEliminarC = new Button();
             btnEditC = new Button();
             btnAdicionarC = new Button();
+            mlvCategoria = new MaterialSkin.Controls.MaterialListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(lvCategoria);
+            groupBox2.Controls.Add(mlvCategoria);
             groupBox2.Controls.Add(btnEliminarC);
             groupBox2.Controls.Add(btnEditC);
             groupBox2.Controls.Add(btnAdicionarC);
-            groupBox2.Location = new Point(4, 5);
+            groupBox2.Location = new Point(7, 5);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(587, 358);
+            groupBox2.Size = new Size(587, 365);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Categorias Ações";
-            // 
-            // lvCategoria
-            // 
-            lvCategoria.Columns.AddRange(new ColumnHeader[] { columnHeader7, columnHeader8, columnHeader13 });
-            lvCategoria.Location = new Point(8, 61);
-            lvCategoria.Margin = new Padding(3, 2, 3, 2);
-            lvCategoria.Name = "lvCategoria";
-            lvCategoria.Size = new Size(567, 279);
-            lvCategoria.TabIndex = 6;
-            lvCategoria.UseCompatibleStateImageBehavior = false;
-            lvCategoria.View = View.Details;
-            // 
-            // columnHeader7
-            // 
-            columnHeader7.Text = "ID";
-            // 
-            // columnHeader8
-            // 
-            columnHeader8.Text = "Name";
-            columnHeader8.Width = 130;
-            // 
-            // columnHeader13
-            // 
-            columnHeader13.Text = "Description";
-            columnHeader13.Width = 200;
             // 
             // btnEliminarC
             // 
@@ -112,6 +87,39 @@
             btnAdicionarC.UseVisualStyleBackColor = true;
             btnAdicionarC.Click += btnAdicionarC_Click;
             // 
+            // mlvCategoria
+            // 
+            mlvCategoria.AutoSizeTable = false;
+            mlvCategoria.BackColor = Color.FromArgb(255, 255, 255);
+            mlvCategoria.BorderStyle = BorderStyle.None;
+            mlvCategoria.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader9 });
+            mlvCategoria.Depth = 0;
+            mlvCategoria.FullRowSelect = true;
+            mlvCategoria.Location = new Point(8, 62);
+            mlvCategoria.MinimumSize = new Size(200, 100);
+            mlvCategoria.MouseLocation = new Point(-1, -1);
+            mlvCategoria.MouseState = MaterialSkin.MouseState.OUT;
+            mlvCategoria.Name = "mlvCategoria";
+            mlvCategoria.OwnerDraw = true;
+            mlvCategoria.Size = new Size(567, 293);
+            mlvCategoria.TabIndex = 7;
+            mlvCategoria.UseCompatibleStateImageBehavior = false;
+            mlvCategoria.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Name";
+            columnHeader2.Width = 200;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Description";
+            columnHeader9.Width = 200;
+            // 
             // Categorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -130,9 +138,9 @@
         private Button btnEliminarC;
         private Button btnEditC;
         private Button btnAdicionarC;
-        private ListView lvCategoria;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
-        private ColumnHeader columnHeader13;
+        private MaterialSkin.Controls.MaterialListView mlvCategoria;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader9;
     }
 }

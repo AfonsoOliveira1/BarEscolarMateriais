@@ -26,10 +26,8 @@ namespace BarEscolarMateriais.CategoriasForms
         {
             try
             {
-                _context.Dispose();
-                _context = new dbEscolaAferContext();
                 //categorias
-                lvCategoria.Items.Clear();
+                mlvCategoria.Items.Clear();
                 _context.Dispose(); //apaga o objecto em memoria (no cache) para atualizar os edits
                 _context = new dbEscolaAferContext();
                 for (int i = 0; i < _context.MaterialCategories.Count(); i++)
@@ -39,7 +37,7 @@ namespace BarEscolarMateriais.CategoriasForms
                     item.Tag = cat.Id;
                     item.SubItems.Add(cat.Name);
                     item.SubItems.Add(cat.Description);
-                    lvCategoria.Items.Add(item);
+                    mlvCategoria.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -58,7 +56,7 @@ namespace BarEscolarMateriais.CategoriasForms
         {
             try
             {
-                int id = Convert.ToInt32(lvCategoria.SelectedItems[0].Tag);
+                int id = Convert.ToInt32(mlvCategoria.SelectedItems[0].Tag);
                 CategoriaEditar form = new CategoriaEditar(id);
                 form.ShowDialog();
                 ListViewLoad();
@@ -71,12 +69,12 @@ namespace BarEscolarMateriais.CategoriasForms
 
         private void btnEliminarC_Click(object sender, EventArgs e)
         {
-            var question = MessageBox.Show("Eliminar uma categoria irá eliminar todos os materiais associados a ela.", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var question = MessageBox.Show("Eliminar uma categoria irá eliminar todos os materiais associados.", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult.Yes == question)
             {
                 try
                 {
-                    foreach (ListViewItem item in lvCategoria.SelectedItems)
+                    foreach (ListViewItem item in mlvCategoria.SelectedItems)
                     {
                         int id = (int)item.Tag;
                         var cat = _context.MaterialCategories.FirstOrDefault(c => c.Id == id);

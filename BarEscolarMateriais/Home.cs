@@ -19,6 +19,14 @@ namespace BarEscolarMateriais
         }
         private void OpenChildForm(Form childForm)
         {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl.GetType() == childForm.GetType())
+                {
+                    ctrl.BringToFront();
+                    return;
+                }
+            }
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
