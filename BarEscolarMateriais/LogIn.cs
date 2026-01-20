@@ -51,10 +51,10 @@ namespace BarEscolarMateriais
             var authenticated = _authentication.Login(EmailorUsername, password);
             var user = _authentication.CurrentUser();
 
-            if (!authenticated || user == null || user.Role != 2)
+            if (!authenticated || user == null || user.Role != 2)//admin role = 2
             {
                 txtPassword.Clear();
-                MessageBox.Show("Credenciais inválidas. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Credenciais inválidas ou não é um Admin. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

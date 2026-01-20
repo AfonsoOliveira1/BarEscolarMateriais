@@ -79,7 +79,7 @@
             txtPassword.HideSelection = true;
             txtPassword.Hint = "Enter Password";
             txtPassword.InsertKeyMode = InsertKeyMode.Default;
-            txtPassword.LeadingIcon = null;
+            txtPassword.LeadingIcon = Properties.Resources.password_76;
             txtPassword.Location = new Point(14, 357);
             txtPassword.Mask = "";
             txtPassword.MaxLength = 32767;
@@ -115,7 +115,7 @@
             txtEmailorUsername.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtEmailorUsername.ForeColor = SystemColors.Window;
             txtEmailorUsername.Hint = "Enter Email or Username";
-            txtEmailorUsername.LeadingIcon = null;
+            txtEmailorUsername.LeadingIcon = Properties.Resources._709699;
             txtEmailorUsername.Location = new Point(14, 264);
             txtEmailorUsername.MaxLength = 50;
             txtEmailorUsername.MouseState = MaterialSkin.MouseState.OUT;

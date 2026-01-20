@@ -8,25 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BarEscolarMateriais.CategoriasForms;
+using Microsoft.AspNetCore.Http.Features.Authentication;
 
 namespace BarEscolarMateriais
 {
     public partial class Home : Form
     {
+        private Services.Authentication _authentication;
+        private Form activateform = null;
         public Home()
         {
             InitializeComponent();
+            lbluser.Text = _authentication.CurrentUser().UserName;
         }
         private void OpenChildForm(Form childForm)
         {
-            foreach (Control ctrl in this.Controls)
+            if(activateform != null)
             {
-                if (ctrl.GetType() == childForm.GetType())
-                {
-                    ctrl.BringToFront();
-                    return;
-                }
+                activateform.Close();
             }
+            activateform = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;

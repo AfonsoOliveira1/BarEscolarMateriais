@@ -38,6 +38,7 @@
             lblhome = new Label();
             panel1 = new Panel();
             lblEcra = new Label();
+            lbluser = new Label();
             panelmenu.SuspendLayout();
             panellogo.SuspendLayout();
             panel1.SuspendLayout();
@@ -161,6 +162,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(51, 51, 76);
+            panel1.Controls.Add(lbluser);
             panel1.Controls.Add(lblEcra);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(200, 0);
@@ -174,11 +176,22 @@
             lblEcra.AutoSize = true;
             lblEcra.Font = new Font("Segoe UI", 30F);
             lblEcra.ForeColor = Color.Gainsboro;
-            lblEcra.Location = new Point(225, 9);
+            lblEcra.Location = new Point(255, 12);
             lblEcra.Name = "lblEcra";
             lblEcra.Size = new Size(137, 54);
             lblEcra.TabIndex = 0;
             lblEcra.Text = "HOME";
+            // 
+            // lbluser
+            // 
+            lbluser.AutoSize = true;
+            lbluser.Font = new Font("Segoe UI", 20F);
+            lbluser.ForeColor = Color.Gainsboro;
+            lbluser.Location = new Point(6, 22);
+            lbluser.Name = "lbluser";
+            lbluser.Size = new Size(70, 37);
+            lbluser.TabIndex = 8;
+            lbluser.Text = "User";
             // 
             // Home
             // 
@@ -211,5 +224,6 @@
         private Panel panel1;
         private Label lblEcra;
         private Label lblhome;
+        private Label lbluser;
     }
 }
