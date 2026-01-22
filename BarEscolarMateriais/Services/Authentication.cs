@@ -18,16 +18,10 @@ namespace BarEscolarMateriais.Services
         }
         public User? FinByLogin(string login)
         {
-            try
-            {
-                return _context.Users.FirstOrDefault(u =>
-                 u.UserName.Equals(login) ||
-                 u.Email.Equals(login));
-            }
-            catch(ArgumentException ex)
-            {
-                throw new ArgumentException(ex.Message);
-            }
+            if (string.IsNullOrWhiteSpace(login))
+                return null;
+
+            return _context.Users.FirstOrDefault(u => u.UserName.Equals(login) || u.Email.Equals(login));
         }
         public User CurrentUser() => _currentuser;
 

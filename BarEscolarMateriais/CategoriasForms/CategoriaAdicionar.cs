@@ -32,7 +32,6 @@ namespace BarEscolarMateriais.CategoriasForms
             {
                 var newcat = new MaterialCategory
                 {
-                    Id = _context.MaterialCategories.Count() + 1,
                     Name = txtName.Text,
                     Description = txtDescription.Text
                 };

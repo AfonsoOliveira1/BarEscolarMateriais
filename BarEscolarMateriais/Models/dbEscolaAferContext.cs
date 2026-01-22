@@ -18,10 +18,15 @@ public partial class dbEscolaAferContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer(
-                "Server=sql.bsite.net\\MSSQL2016;Database=afer230065230054_dbEscolaAFER;User ID=afer230065230054_dbEscolaAFER;Password=SQL_;TrustServerCertificate=True");
+               "Server=sql.bsite.net\\MSSQL2016;Database=afer230065230054_dbEscolaAFER;User ID=afer230065230054_dbEscolaAFER;Password=SQL_;TrustServerCertificate=True",
+               sqlOptions => sqlOptions.EnableRetryOnFailure(
+                   maxRetryCount: 5,                   // Retry up to 5 times
+                   maxRetryDelay: TimeSpan.FromSeconds(2), // Wait 2 seconds between retries
+                   errorNumbersToAdd: null              // Add any custom SQL error codes if needed
+               )
+           );
         }
     }
-
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Historico> Historicos { get; set; }
@@ -50,7 +55,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("Category");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Description)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -65,9 +69,7 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("Historico");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Categoryid).HasColumnName("categoryid");
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
@@ -104,7 +106,7 @@ public partial class dbEscolaAferContext : DbContext
             entity.ToTable("Material");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.Categoryid).HasColumnName("categoryid");
             entity.Property(e => e.Description)
@@ -130,7 +132,7 @@ public partial class dbEscolaAferContext : DbContext
             entity.ToTable("MaterialCategory");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
@@ -146,7 +148,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("MenuDay");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Dessert)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -174,7 +175,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("MenuWeek");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Weekstart)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -185,7 +185,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("Order");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Total).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Type)
                 .HasMaxLength(50)
@@ -205,7 +204,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("OrderItem");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Subtotal).HasColumnType("money");
             entity.Property(e => e.UnitPrice).HasColumnType("money");
 
@@ -226,7 +224,6 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("Product");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Allergens)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -271,7 +268,7 @@ public partial class dbEscolaAferContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Passwordhash)
-                .HasMaxLength(50)
+                .HasMaxLength(900)
                 .IsUnicode(false)
                 .HasColumnName("passwordhash");
             entity.Property(e => e.Role).HasColumnName("role");

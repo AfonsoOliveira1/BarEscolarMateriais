@@ -39,7 +39,6 @@ namespace BarEscolarMateriais.Historico
                 }
                 var historico = new Models.Historico
                 {
-                    Id = _context.Historicos.Count() + 1,
                     Materialid = mat.Id,
                     Userid = user.Id,
                     Categoryid = mat.Categoryid,

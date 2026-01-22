@@ -30,7 +30,6 @@ namespace BarEscolarMateriais.MateriaisForms
 
                 var mat = new Material
                 {
-                    Id = _context.Materials.Count() + 1,
                     Name = txtName.Text,
                     Description = txtDescription.Text,
                     Price = nudPrice.Value,
