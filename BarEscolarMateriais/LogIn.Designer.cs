@@ -49,9 +49,10 @@
             panel1.Controls.Add(lblpassword);
             panel1.Controls.Add(lblemail);
             panel1.Controls.Add(lblLogin);
-            panel1.Location = new Point(285, -3);
+            panel1.Location = new Point(326, -4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(380, 570);
+            panel1.Size = new Size(434, 760);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -59,9 +60,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(37, 128);
+            label1.Location = new Point(24, 171);
             label1.Name = "label1";
-            label1.Size = new Size(300, 28);
+            label1.Size = new Size(383, 35);
             label1.TabIndex = 4;
             label1.Text = "Gestão de Materiais para Admins";
             // 
@@ -80,7 +81,8 @@
             txtPassword.Hint = "Enter Password";
             txtPassword.InsertKeyMode = InsertKeyMode.Default;
             txtPassword.LeadingIcon = Properties.Resources.password_76;
-            txtPassword.Location = new Point(14, 357);
+            txtPassword.Location = new Point(16, 476);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Mask = "";
             txtPassword.MaxLength = 32767;
             txtPassword.MouseState = MaterialSkin.MouseState.OUT;
@@ -97,7 +99,7 @@
             txtPassword.SelectionLength = 0;
             txtPassword.SelectionStart = 0;
             txtPassword.ShortcutsEnabled = true;
-            txtPassword.Size = new Size(348, 48);
+            txtPassword.Size = new Size(398, 48);
             txtPassword.SkipLiterals = true;
             txtPassword.TabIndex = 2;
             txtPassword.TabStop = false;
@@ -116,12 +118,13 @@
             txtEmailorUsername.ForeColor = SystemColors.Window;
             txtEmailorUsername.Hint = "Enter Email or Username";
             txtEmailorUsername.LeadingIcon = Properties.Resources._709699;
-            txtEmailorUsername.Location = new Point(14, 264);
+            txtEmailorUsername.Location = new Point(16, 352);
+            txtEmailorUsername.Margin = new Padding(3, 4, 3, 4);
             txtEmailorUsername.MaxLength = 50;
             txtEmailorUsername.MouseState = MaterialSkin.MouseState.OUT;
             txtEmailorUsername.Multiline = false;
             txtEmailorUsername.Name = "txtEmailorUsername";
-            txtEmailorUsername.Size = new Size(348, 50);
+            txtEmailorUsername.Size = new Size(398, 50);
             txtEmailorUsername.TabIndex = 1;
             txtEmailorUsername.Text = "";
             txtEmailorUsername.TrailingIcon = null;
@@ -134,11 +137,10 @@
             btnInserir.Font = new Font("Segoe UI", 14F);
             btnInserir.ForeColor = Color.Gainsboro;
             btnInserir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInserir.Location = new Point(14, 462);
-            btnInserir.Margin = new Padding(3, 2, 3, 2);
+            btnInserir.Location = new Point(16, 616);
             btnInserir.Name = "btnInserir";
-            btnInserir.Padding = new Padding(10, 0, 0, 0);
-            btnInserir.Size = new Size(348, 47);
+            btnInserir.Padding = new Padding(11, 0, 0, 0);
+            btnInserir.Size = new Size(398, 63);
             btnInserir.TabIndex = 3;
             btnInserir.Text = "Inserir";
             btnInserir.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -150,9 +152,9 @@
             lblpassword.AutoSize = true;
             lblpassword.Font = new Font("Segoe UI", 20F);
             lblpassword.ForeColor = SystemColors.ActiveCaptionText;
-            lblpassword.Location = new Point(6, 317);
+            lblpassword.Location = new Point(7, 423);
             lblpassword.Name = "lblpassword";
-            lblpassword.Size = new Size(128, 37);
+            lblpassword.Size = new Size(160, 46);
             lblpassword.TabIndex = 2;
             lblpassword.Text = "Password";
             // 
@@ -161,9 +163,9 @@
             lblemail.AutoSize = true;
             lblemail.Font = new Font("Segoe UI", 20F);
             lblemail.ForeColor = SystemColors.ActiveCaptionText;
-            lblemail.Location = new Point(6, 224);
+            lblemail.Location = new Point(7, 299);
             lblemail.Name = "lblemail";
-            lblemail.Size = new Size(212, 37);
+            lblemail.Size = new Size(262, 46);
             lblemail.TabIndex = 1;
             lblemail.Text = "Email/Username";
             // 
@@ -172,24 +174,26 @@
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI Semibold", 50F, FontStyle.Bold);
             lblLogin.ForeColor = SystemColors.ActiveCaptionText;
-            lblLogin.Location = new Point(85, 12);
+            lblLogin.Location = new Point(97, 16);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(208, 89);
+            lblLogin.Size = new Size(260, 112);
             lblLogin.TabIndex = 0;
             lblLogin.Text = "Login";
             // 
             // LogIn
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(948, 562);
+            ClientSize = new Size(1083, 749);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            FormClosing += LogIn_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

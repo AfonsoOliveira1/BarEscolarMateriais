@@ -8,22 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BarEscolarMateriais.CategoriasForms;
+using BarEscolarMateriais.Models;
+using BarEscolarMateriais.Services;
 using Microsoft.AspNetCore.Http.Features.Authentication;
 
 namespace BarEscolarMateriais
 {
     public partial class Home : Form
     {
-        private Services.Authentication _authentication;
+        private readonly Authentication _authentication;
         private Form activateform = null;
-        public Home()
+        private dbEscolaAferContext _context = new dbEscolaAferContext();
+        public Home(Authentication auth)
         {
             InitializeComponent();
+            _authentication = auth;
+            updatecards();
+        }
+        public void updatecards()
+        {
             lbluser.Text = _authentication.CurrentUser().UserName;
+            lblTotalCat.Text = _context.MaterialCategories.Count().ToString();
+            lblTotalMat.Text = _context.Materials.Count().ToString();
+            lblStockTotalValue.Text = _context.Materials.Sum(m => m.Price * m.Stock).ToString() + "€";
+            lblTotalVendas.Text = _context.Historicos.Count().ToString();
+            lblmateriaissemstock.Text = _context.Materials.Where(m => m.Stock == 0).Count().ToString();
         }
         private void OpenChildForm(Form childForm)
         {
-            if(activateform != null)
+            this.SuspendLayout();
+            if (activateform != null)
             {
                 activateform.Close();
             }
@@ -31,10 +45,11 @@ namespace BarEscolarMateriais
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.Controls.Add(childForm);
-            this.Tag = childForm;
+            panelMain.Controls.Add(childForm);
+            panelMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            this.ResumeLayout();
         }
 
         private void btnMateriais_Click(object sender, EventArgs e)
@@ -57,9 +72,23 @@ namespace BarEscolarMateriais
 
         private void btnLog_Click(object sender, EventArgs e)
         {
+            _authentication.Logout();
             LogIn from = new LogIn();
             from.Show();
             this.Hide();
+        }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblhome_Click(object sender, EventArgs e)
+        {
+            if(activateform != null)
+                activateform.Close();
+            lblEcra.Text = "HOME";
+            updatecards();
         }
     }
 }

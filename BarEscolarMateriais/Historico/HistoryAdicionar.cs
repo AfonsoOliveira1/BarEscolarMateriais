@@ -32,6 +32,11 @@ namespace BarEscolarMateriais.Historico
                 string idUser = cbbUser.SelectedValue.ToString();
                 User user = _context.Users.FirstOrDefault(u => u.Id == idUser);
 
+                if(nudqtd.Value > mat.Stock)
+                {
+                    MessageBox.Show("Quantidade em stock insuficiente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 var historico = new Models.Historico
                 {
                     Id = _context.Historicos.Count() + 1,
@@ -39,10 +44,11 @@ namespace BarEscolarMateriais.Historico
                     Userid = user.Id,
                     Categoryid = mat.Categoryid,
                     Name = mat.Name,
-                    Stock = mat.Stock,
+                    StockQuantidade = (int)nudqtd.Value,
                     Price = mat.Price,
                     Description = mat.Description,
                 };
+                mat.Stock -= (int)nudqtd.Value;
                 _context.Historicos.Add(historico);
                 _context.SaveChanges();
                 this.Close();

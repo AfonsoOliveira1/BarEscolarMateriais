@@ -34,13 +34,16 @@
             cbbMaterial = new ComboBox();
             btnInserir = new Button();
             btnVoltar = new Button();
+            label1 = new Label();
+            nudqtd = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nudqtd).BeginInit();
             SuspendLayout();
             // 
             // cbbUser
             // 
             cbbUser.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbUser.FormattingEnabled = true;
-            cbbUser.Location = new Point(12, 32);
+            cbbUser.Location = new Point(12, 89);
             cbbUser.Name = "cbbUser";
             cbbUser.Size = new Size(167, 28);
             cbbUser.TabIndex = 0;
@@ -49,7 +52,7 @@
             // lbluser
             // 
             lbluser.AutoSize = true;
-            lbluser.Location = new Point(12, 9);
+            lbluser.Location = new Point(12, 66);
             lbluser.Name = "lbluser";
             lbluser.Size = new Size(38, 20);
             lbluser.TabIndex = 1;
@@ -58,7 +61,7 @@
             // lblMateriais
             // 
             lblMateriais.AutoSize = true;
-            lblMateriais.Location = new Point(202, 9);
+            lblMateriais.Location = new Point(12, 12);
             lblMateriais.Name = "lblMateriais";
             lblMateriais.Size = new Size(64, 20);
             lblMateriais.TabIndex = 2;
@@ -68,7 +71,7 @@
             // 
             cbbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbMaterial.FormattingEnabled = true;
-            cbbMaterial.Location = new Point(202, 32);
+            cbbMaterial.Location = new Point(12, 35);
             cbbMaterial.Name = "cbbMaterial";
             cbbMaterial.Size = new Size(167, 28);
             cbbMaterial.TabIndex = 3;
@@ -76,7 +79,7 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(202, 81);
+            btnInserir.Location = new Point(202, 134);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(167, 42);
             btnInserir.TabIndex = 11;
@@ -86,7 +89,7 @@
             // 
             // btnVoltar
             // 
-            btnVoltar.Location = new Point(12, 81);
+            btnVoltar.Location = new Point(12, 134);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(167, 42);
             btnVoltar.TabIndex = 10;
@@ -94,11 +97,29 @@
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(202, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(87, 20);
+            label1.TabIndex = 12;
+            label1.Text = "Quantidade";
+            // 
+            // nudqtd
+            // 
+            nudqtd.Location = new Point(202, 36);
+            nudqtd.Name = "nudqtd";
+            nudqtd.Size = new Size(167, 27);
+            nudqtd.TabIndex = 13;
+            // 
             // HistoryAdicionar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(389, 135);
+            ClientSize = new Size(383, 189);
+            Controls.Add(nudqtd);
+            Controls.Add(label1);
             Controls.Add(btnInserir);
             Controls.Add(btnVoltar);
             Controls.Add(cbbMaterial);
@@ -110,6 +131,7 @@
             Name = "HistoryAdicionar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Adicionar Venda";
+            ((System.ComponentModel.ISupportInitialize)nudqtd).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +144,7 @@
         private ComboBox cbbMaterial;
         private Button btnInserir;
         private Button btnVoltar;
+        private Label label1;
+        private NumericUpDown nudqtd;
     }
 }

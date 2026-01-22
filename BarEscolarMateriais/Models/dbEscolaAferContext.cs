@@ -81,7 +81,7 @@ public partial class dbEscolaAferContext : DbContext
             entity.Property(e => e.Price)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("price");
-            entity.Property(e => e.Stock).HasColumnName("stock");
+            entity.Property(e => e.StockQuantidade).HasColumnName("stockQuantidade");
             entity.Property(e => e.Userid)
                 .IsRequired()
                 .HasMaxLength(50)

@@ -58,10 +58,15 @@ namespace BarEscolarMateriais
             }
             else
             {
-                Home home = new Home();
+                Home home = new Home(_authentication);
                 home.Show();
                 this.Hide();
             }
+        }
+
+        private void LogIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

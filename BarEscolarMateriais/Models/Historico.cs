@@ -17,7 +17,7 @@ public partial class Historico
 
     public int Categoryid { get; set; }
 
-    public int? Stock { get; set; }
+    public int StockQuantidade { get; set; }
 
     public string Userid { get; set; }
 

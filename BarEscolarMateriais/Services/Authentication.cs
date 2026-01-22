@@ -9,7 +9,7 @@ namespace BarEscolarMateriais.Services
     {
         private dbEscolaAferContext _context;
         private PasswordHasher<User> _passwordHasher;
-        private User _currentuser;
+        private User? _currentuser;
 
         public Authentication()
         {
@@ -18,9 +18,16 @@ namespace BarEscolarMateriais.Services
         }
         public User? FinByLogin(string login)
         {
-            return _context.Users.FirstOrDefault(u =>
-                u.UserName.Equals(login) ||
-                u.Email.Equals(login));
+            try
+            {
+                return _context.Users.FirstOrDefault(u =>
+                 u.UserName.Equals(login) ||
+                 u.Email.Equals(login));
+            }
+            catch(ArgumentException ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
         }
         public User CurrentUser() => _currentuser;
 
