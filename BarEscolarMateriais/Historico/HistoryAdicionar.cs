@@ -32,7 +32,7 @@ namespace BarEscolarMateriais.Historico
                 string idUser = cbbUser.SelectedValue.ToString();
                 User user = _context.Users.FirstOrDefault(u => u.Id == idUser);
 
-                if(nudqtd.Value > mat.Stock)
+                if (nudqtd.Value > mat.Stock)
                 {
                     MessageBox.Show("Quantidade em stock insuficiente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -66,7 +66,7 @@ namespace BarEscolarMateriais.Historico
                 cbbUser.DisplayMember = "UserName";
                 cbbUser.ValueMember = "Id";
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -89,6 +89,14 @@ namespace BarEscolarMateriais.Historico
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void nudqtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

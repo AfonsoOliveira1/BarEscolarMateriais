@@ -42,7 +42,7 @@ namespace BarEscolarMateriais
                     item.SubItems.Add(mat.Name);
                     item.SubItems.Add(cat.Name);
                     item.SubItems.Add(mat.Price.ToString() + "€");
-                    item.SubItems.Add(mat.Stock.ToString());
+                    item.SubItems.Add(historico.StockQuantidade.ToString());
                     item.SubItems.Add(mat.Description);
                     mlvHistorico.Items.Add(item);
                 }

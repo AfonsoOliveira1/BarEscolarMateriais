@@ -105,9 +105,7 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("Material");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Categoryid).HasColumnName("categoryid");
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
@@ -124,6 +122,7 @@ public partial class dbEscolaAferContext : DbContext
 
             entity.HasOne(d => d.Category).WithMany(p => p.Materials)
                 .HasForeignKey(d => d.Categoryid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Material_MaterialCategory");
         });
 
@@ -131,9 +130,7 @@ public partial class dbEscolaAferContext : DbContext
         {
             entity.ToTable("MaterialCategory");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
                 .IsUnicode(false)

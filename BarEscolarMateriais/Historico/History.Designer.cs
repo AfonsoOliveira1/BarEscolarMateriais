@@ -37,7 +37,7 @@
             colName = new ColumnHeader();
             colCategory = new ColumnHeader();
             colPrice = new ColumnHeader();
-            colStock = new ColumnHeader();
+            colStockQtd = new ColumnHeader();
             colDescription = new ColumnHeader();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -81,7 +81,7 @@
             mlvHistorico.AutoSizeTable = false;
             mlvHistorico.BackColor = Color.FromArgb(255, 255, 255);
             mlvHistorico.BorderStyle = BorderStyle.None;
-            mlvHistorico.Columns.AddRange(new ColumnHeader[] { colID, colUser, colName, colCategory, colPrice, colStock, colDescription });
+            mlvHistorico.Columns.AddRange(new ColumnHeader[] { colID, colUser, colName, colCategory, colPrice, colStockQtd, colDescription });
             mlvHistorico.Depth = 0;
             mlvHistorico.FullRowSelect = true;
             mlvHistorico.Location = new Point(6, 59);
@@ -95,36 +95,36 @@
             mlvHistorico.UseCompatibleStateImageBehavior = false;
             mlvHistorico.View = View.Details;
             // 
-            // ID
+            // colID
             // 
             colID.Text = "ID";
             // 
-            // User
+            // colUser
             // 
             colUser.Text = "User";
             colUser.Width = 100;
             // 
-            // Name
+            // colName
             // 
             colName.Text = "Name";
             colName.Width = 100;
             // 
-            // Category
+            // colCategory
             // 
             colCategory.Text = "Category";
             colCategory.Width = 100;
             // 
-            // Price
+            // colPrice
             // 
             colPrice.Text = "Price";
             colPrice.Width = 70;
             // 
-            // Stock
+            // colStockQtd
             // 
-            colStock.Text = "Stock";
-            colStock.Width = 70;
+            colStockQtd.Text = "Qtd";
+            colStockQtd.Width = 70;
             // 
-            // Description
+            // colDescription
             // 
             colDescription.Text = "Description";
             colDescription.Width = 120;
@@ -155,7 +155,7 @@
         private ColumnHeader colName;
         private ColumnHeader colCategory;
         private ColumnHeader colPrice;
-        private ColumnHeader colStock;
+        private ColumnHeader colStockQtd;
         private ColumnHeader colDescription;
     }
 }
