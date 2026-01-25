@@ -91,9 +91,8 @@
             panelmenu.Controls.Add(panellogo);
             panelmenu.Dock = DockStyle.Left;
             panelmenu.Location = new Point(0, 0);
-            panelmenu.Margin = new Padding(3, 4, 3, 4);
             panelmenu.Name = "panelmenu";
-            panelmenu.Size = new Size(229, 600);
+            panelmenu.Size = new Size(200, 450);
             panelmenu.TabIndex = 5;
             // 
             // btnLog
@@ -105,10 +104,11 @@
             btnLog.ForeColor = Color.Gainsboro;
             btnLog.Image = (Image)resources.GetObject("btnLog.Image");
             btnLog.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLog.Location = new Point(0, 500);
+            btnLog.Location = new Point(0, 375);
+            btnLog.Margin = new Padding(3, 2, 3, 2);
             btnLog.Name = "btnLog";
-            btnLog.Padding = new Padding(11, 0, 0, 0);
-            btnLog.Size = new Size(229, 100);
+            btnLog.Padding = new Padding(10, 0, 0, 0);
+            btnLog.Size = new Size(200, 75);
             btnLog.TabIndex = 8;
             btnLog.Text = "   Log Out";
             btnLog.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -124,10 +124,11 @@
             btnHistorico.ForeColor = Color.Gainsboro;
             btnHistorico.Image = (Image)resources.GetObject("btnHistorico.Image");
             btnHistorico.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistorico.Location = new Point(0, 304);
+            btnHistorico.Location = new Point(0, 228);
+            btnHistorico.Margin = new Padding(3, 2, 3, 2);
             btnHistorico.Name = "btnHistorico";
-            btnHistorico.Padding = new Padding(11, 0, 0, 0);
-            btnHistorico.Size = new Size(229, 100);
+            btnHistorico.Padding = new Padding(10, 0, 0, 0);
+            btnHistorico.Size = new Size(200, 75);
             btnHistorico.TabIndex = 7;
             btnHistorico.Text = "   Historico";
             btnHistorico.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -143,10 +144,11 @@
             btnCategory.ForeColor = Color.Gainsboro;
             btnCategory.Image = (Image)resources.GetObject("btnCategory.Image");
             btnCategory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategory.Location = new Point(0, 204);
+            btnCategory.Location = new Point(0, 153);
+            btnCategory.Margin = new Padding(3, 2, 3, 2);
             btnCategory.Name = "btnCategory";
-            btnCategory.Padding = new Padding(11, 0, 0, 0);
-            btnCategory.Size = new Size(229, 100);
+            btnCategory.Padding = new Padding(10, 0, 0, 0);
+            btnCategory.Size = new Size(200, 75);
             btnCategory.TabIndex = 6;
             btnCategory.Text = "   Categorias";
             btnCategory.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -162,10 +164,11 @@
             btnMateriais.ForeColor = Color.Gainsboro;
             btnMateriais.Image = (Image)resources.GetObject("btnMateriais.Image");
             btnMateriais.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMateriais.Location = new Point(0, 104);
+            btnMateriais.Location = new Point(0, 78);
+            btnMateriais.Margin = new Padding(3, 2, 3, 2);
             btnMateriais.Name = "btnMateriais";
-            btnMateriais.Padding = new Padding(11, 0, 0, 0);
-            btnMateriais.Size = new Size(229, 100);
+            btnMateriais.Padding = new Padding(10, 0, 0, 0);
+            btnMateriais.Size = new Size(200, 75);
             btnMateriais.TabIndex = 3;
             btnMateriais.Text = "   Materiais";
             btnMateriais.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -178,9 +181,8 @@
             panellogo.Controls.Add(lblhome);
             panellogo.Dock = DockStyle.Top;
             panellogo.Location = new Point(0, 0);
-            panellogo.Margin = new Padding(3, 4, 3, 4);
             panellogo.Name = "panellogo";
-            panellogo.Size = new Size(229, 104);
+            panellogo.Size = new Size(200, 78);
             panellogo.TabIndex = 5;
             // 
             // lblhome
@@ -188,9 +190,9 @@
             lblhome.AutoSize = true;
             lblhome.Font = new Font("Segoe UI", 30F);
             lblhome.ForeColor = Color.Gainsboro;
-            lblhome.Location = new Point(29, 16);
+            lblhome.Location = new Point(25, 12);
             lblhome.Name = "lblhome";
-            lblhome.Size = new Size(173, 67);
+            lblhome.Size = new Size(137, 54);
             lblhome.TabIndex = 7;
             lblhome.Text = "HOME";
             lblhome.Click += lblhome_Click;
@@ -201,10 +203,9 @@
             panel1.Controls.Add(lbluser);
             panel1.Controls.Add(lblEcra);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(229, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(200, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(685, 104);
+            panel1.Size = new Size(600, 78);
             panel1.TabIndex = 6;
             // 
             // lbluser
@@ -212,9 +213,9 @@
             lbluser.AutoSize = true;
             lbluser.Font = new Font("Segoe UI", 20F);
             lbluser.ForeColor = Color.Gainsboro;
-            lbluser.Location = new Point(7, 29);
+            lbluser.Location = new Point(6, 22);
             lbluser.Name = "lbluser";
-            lbluser.Size = new Size(87, 46);
+            lbluser.Size = new Size(70, 37);
             lbluser.TabIndex = 8;
             lbluser.Text = "User";
             // 
@@ -224,9 +225,9 @@
             lblEcra.AutoSize = true;
             lblEcra.Font = new Font("Segoe UI", 30F);
             lblEcra.ForeColor = Color.Gainsboro;
-            lblEcra.Location = new Point(273, 16);
+            lblEcra.Location = new Point(240, 12);
             lblEcra.Name = "lblEcra";
-            lblEcra.Size = new Size(173, 67);
+            lblEcra.Size = new Size(137, 54);
             lblEcra.TabIndex = 0;
             lblEcra.Text = "HOME";
             // 
@@ -239,21 +240,21 @@
             materialCard2.Controls.Add(pictureBox1);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(345, 18);
-            materialCard2.Margin = new Padding(14);
+            materialCard2.Location = new Point(302, 14);
+            materialCard2.Margin = new Padding(12, 10, 12, 10);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
-            materialCard2.Padding = new Padding(14);
-            materialCard2.Size = new Size(317, 159);
+            materialCard2.Padding = new Padding(12, 10, 12, 10);
+            materialCard2.Size = new Size(277, 119);
             materialCard2.TabIndex = 8;
             // 
             // lblTotalCat
             // 
             lblTotalCat.AutoSize = true;
             lblTotalCat.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            lblTotalCat.Location = new Point(20, 113);
+            lblTotalCat.Location = new Point(18, 85);
             lblTotalCat.Name = "lblTotalCat";
-            lblTotalCat.Size = new Size(28, 32);
+            lblTotalCat.Size = new Size(23, 25);
             lblTotalCat.TabIndex = 4;
             lblTotalCat.Text = "0";
             // 
@@ -261,9 +262,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
-            label2.Location = new Point(20, 64);
+            label2.Location = new Point(18, 48);
             label2.Name = "label2";
-            label2.Size = new Size(250, 25);
+            label2.Size = new Size(197, 20);
             label2.TabIndex = 3;
             label2.Text = "Total de categorias existentes";
             // 
@@ -271,18 +272,19 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            label1.Location = new Point(82, 16);
+            label1.Location = new Point(72, 12);
             label1.Name = "label1";
-            label1.Size = new Size(233, 32);
+            label1.Size = new Size(181, 25);
             label1.TabIndex = 2;
             label1.Text = "Total de Categorias";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.categ;
-            pictureBox1.Location = new Point(20, 9);
+            pictureBox1.Location = new Point(18, 7);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 48);
+            pictureBox1.Size = new Size(55, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -296,21 +298,21 @@
             materialCard1.Controls.Add(pictureBox2);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(17, 18);
-            materialCard1.Margin = new Padding(14);
+            materialCard1.Location = new Point(15, 14);
+            materialCard1.Margin = new Padding(12, 10, 12, 10);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(317, 159);
+            materialCard1.Padding = new Padding(12, 10, 12, 10);
+            materialCard1.Size = new Size(277, 119);
             materialCard1.TabIndex = 9;
             // 
             // lblTotalMat
             // 
             lblTotalMat.AutoSize = true;
             lblTotalMat.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            lblTotalMat.Location = new Point(20, 113);
+            lblTotalMat.Location = new Point(18, 85);
             lblTotalMat.Name = "lblTotalMat";
-            lblTotalMat.Size = new Size(28, 32);
+            lblTotalMat.Size = new Size(23, 25);
             lblTotalMat.TabIndex = 4;
             lblTotalMat.Text = "0";
             // 
@@ -318,9 +320,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
-            label4.Location = new Point(20, 64);
+            label4.Location = new Point(18, 48);
             label4.Name = "label4";
-            label4.Size = new Size(243, 25);
+            label4.Size = new Size(191, 20);
             label4.TabIndex = 3;
             label4.Text = "Total de materiais existentes";
             // 
@@ -328,18 +330,19 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            label5.Location = new Point(82, 16);
+            label5.Location = new Point(72, 12);
             label5.Name = "label5";
-            label5.Size = new Size(218, 32);
+            label5.Size = new Size(168, 25);
             label5.TabIndex = 2;
             label5.Text = "Total de Materiais";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(20, 9);
+            pictureBox2.Location = new Point(18, 7);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(63, 48);
+            pictureBox2.Size = new Size(55, 36);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -353,21 +356,21 @@
             materialCard3.Controls.Add(pictureBox3);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard3.Location = new Point(17, 200);
-            materialCard3.Margin = new Padding(14);
+            materialCard3.Location = new Point(15, 150);
+            materialCard3.Margin = new Padding(12, 10, 12, 10);
             materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard3.Name = "materialCard3";
-            materialCard3.Padding = new Padding(14);
-            materialCard3.Size = new Size(317, 159);
+            materialCard3.Padding = new Padding(12, 10, 12, 10);
+            materialCard3.Size = new Size(277, 119);
             materialCard3.TabIndex = 10;
             // 
             // lblTotalVendas
             // 
             lblTotalVendas.AutoSize = true;
             lblTotalVendas.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            lblTotalVendas.Location = new Point(20, 113);
+            lblTotalVendas.Location = new Point(18, 85);
             lblTotalVendas.Name = "lblTotalVendas";
-            lblTotalVendas.Size = new Size(28, 32);
+            lblTotalVendas.Size = new Size(23, 25);
             lblTotalVendas.TabIndex = 4;
             lblTotalVendas.Text = "0";
             // 
@@ -375,9 +378,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
-            label6.Location = new Point(20, 64);
+            label6.Location = new Point(18, 48);
             label6.Name = "label6";
-            label6.Size = new Size(235, 25);
+            label6.Size = new Size(185, 20);
             label6.TabIndex = 3;
             label6.Text = "Total de materiais vendidos\r\n";
             // 
@@ -385,18 +388,19 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            label7.Location = new Point(82, 16);
+            label7.Location = new Point(72, 12);
             label7.Name = "label7";
-            label7.Size = new Size(193, 32);
+            label7.Size = new Size(151, 25);
             label7.TabIndex = 2;
             label7.Text = "Total de Vendas";
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(20, 9);
+            pictureBox3.Location = new Point(18, 7);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(63, 48);
+            pictureBox3.Size = new Size(55, 36);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
@@ -410,30 +414,30 @@
             materialCard4.Controls.Add(pictureBox4);
             materialCard4.Depth = 0;
             materialCard4.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard4.Location = new Point(343, 200);
-            materialCard4.Margin = new Padding(14);
+            materialCard4.Location = new Point(300, 150);
+            materialCard4.Margin = new Padding(12, 10, 12, 10);
             materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard4.Name = "materialCard4";
-            materialCard4.Padding = new Padding(14);
-            materialCard4.Size = new Size(317, 159);
+            materialCard4.Padding = new Padding(12, 10, 12, 10);
+            materialCard4.Size = new Size(277, 119);
             materialCard4.TabIndex = 11;
             // 
             // lblStockTotalValue
             // 
             lblStockTotalValue.AutoSize = true;
             lblStockTotalValue.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            lblStockTotalValue.Location = new Point(20, 113);
+            lblStockTotalValue.Location = new Point(18, 85);
             lblStockTotalValue.Name = "lblStockTotalValue";
-            lblStockTotalValue.Size = new Size(28, 32);
+            lblStockTotalValue.Size = new Size(23, 25);
             lblStockTotalValue.TabIndex = 4;
             lblStockTotalValue.Text = "0";
             // 
             // label9
             // 
             label9.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
-            label9.Location = new Point(20, 63);
+            label9.Location = new Point(18, 47);
             label9.Name = "label9";
-            label9.Size = new Size(285, 60);
+            label9.Size = new Size(249, 45);
             label9.TabIndex = 3;
             label9.Text = "Valor de todos os materiais combinados";
             // 
@@ -441,18 +445,19 @@
             // 
             label10.AutoEllipsis = true;
             label10.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            label10.Location = new Point(87, 2);
+            label10.Location = new Point(76, 2);
             label10.Name = "label10";
-            label10.Size = new Size(218, 73);
+            label10.Size = new Size(191, 55);
             label10.TabIndex = 2;
             label10.Text = "Valor Total do Estoque";
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(20, 9);
+            pictureBox4.Location = new Point(18, 7);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(63, 48);
+            pictureBox4.Size = new Size(55, 36);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 1;
             pictureBox4.TabStop = false;
@@ -465,9 +470,10 @@
             panelMain.Controls.Add(materialCard2);
             panelMain.Controls.Add(materialCard3);
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(229, 104);
+            panelMain.Location = new Point(200, 78);
+            panelMain.Margin = new Padding(3, 2, 3, 2);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(685, 496);
+            panelMain.Size = new Size(600, 372);
             panelMain.TabIndex = 12;
             // 
             // materialCard5
@@ -479,30 +485,30 @@
             materialCard5.Controls.Add(pictureBox5);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard5.Location = new Point(17, 369);
-            materialCard5.Margin = new Padding(14);
+            materialCard5.Location = new Point(15, 277);
+            materialCard5.Margin = new Padding(12, 10, 12, 10);
             materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard5.Name = "materialCard5";
-            materialCard5.Padding = new Padding(14);
-            materialCard5.Size = new Size(631, 113);
+            materialCard5.Padding = new Padding(12, 10, 12, 10);
+            materialCard5.Size = new Size(564, 85);
             materialCard5.TabIndex = 11;
             // 
             // lblmateriaissemstock
             // 
             lblmateriaissemstock.AutoSize = true;
             lblmateriaissemstock.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            lblmateriaissemstock.Location = new Point(20, 67);
+            lblmateriaissemstock.Location = new Point(18, 50);
             lblmateriaissemstock.Name = "lblmateriaissemstock";
-            lblmateriaissemstock.Size = new Size(28, 32);
+            lblmateriaissemstock.Size = new Size(23, 25);
             lblmateriaissemstock.TabIndex = 4;
             lblmateriaissemstock.Text = "0";
             // 
             // label8
             // 
             label8.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
-            label8.Location = new Point(326, 22);
+            label8.Location = new Point(285, 16);
             label8.Name = "label8";
-            label8.Size = new Size(288, 77);
+            label8.Size = new Size(252, 58);
             label8.TabIndex = 3;
             label8.Text = "Total de materiais sem esetoque";
             // 
@@ -510,32 +516,32 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold);
-            label11.Location = new Point(82, 16);
+            label11.Location = new Point(72, 12);
             label11.Name = "label11";
-            label11.Size = new Size(243, 32);
+            label11.Size = new Size(191, 25);
             label11.TabIndex = 2;
             label11.Text = "Materiais Sem Stock";
             // 
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(20, 9);
+            pictureBox5.Location = new Point(18, 7);
+            pictureBox5.Margin = new Padding(3, 2, 3, 2);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(63, 48);
+            pictureBox5.Size = new Size(55, 36);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 1;
             pictureBox5.TabStop = false;
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(panelMain);
             Controls.Add(panel1);
             Controls.Add(panelmenu);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
